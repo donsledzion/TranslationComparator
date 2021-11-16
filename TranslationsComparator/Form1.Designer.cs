@@ -51,7 +51,7 @@ namespace TranslationsComparator
             this.btnSelectFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnSelectFiles.Location = new System.Drawing.Point(12, 66);
             this.btnSelectFiles.Name = "btnSelectFiles";
-            this.btnSelectFiles.Size = new System.Drawing.Size(297, 120);
+            this.btnSelectFiles.Size = new System.Drawing.Size(297, 45);
             this.btnSelectFiles.TabIndex = 0;
             this.btnSelectFiles.Text = "Kliknij aby wybrać pliki";
             this.btnSelectFiles.UseVisualStyleBackColor = true;
@@ -60,9 +60,9 @@ namespace TranslationsComparator
             // lstDoubled
             // 
             this.lstDoubled.FormattingEnabled = true;
-            this.lstDoubled.Location = new System.Drawing.Point(12, 480);
+            this.lstDoubled.Location = new System.Drawing.Point(12, 428);
             this.lstDoubled.Name = "lstDoubled";
-            this.lstDoubled.Size = new System.Drawing.Size(297, 121);
+            this.lstDoubled.Size = new System.Drawing.Size(297, 173);
             this.lstDoubled.TabIndex = 4;
             this.lstDoubled.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -70,7 +70,7 @@ namespace TranslationsComparator
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(12, 447);
+            this.label2.Location = new System.Drawing.Point(12, 400);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 20);
             this.label2.TabIndex = 5;
@@ -89,7 +89,7 @@ namespace TranslationsComparator
             // 
             // btnMissingEntries
             // 
-            this.btnMissingEntries.Location = new System.Drawing.Point(12, 209);
+            this.btnMissingEntries.Location = new System.Drawing.Point(12, 119);
             this.btnMissingEntries.Name = "btnMissingEntries";
             this.btnMissingEntries.Size = new System.Drawing.Size(147, 34);
             this.btnMissingEntries.TabIndex = 7;
@@ -100,7 +100,7 @@ namespace TranslationsComparator
             // 
             // btnDoubledEntryies
             // 
-            this.btnDoubledEntryies.Location = new System.Drawing.Point(165, 209);
+            this.btnDoubledEntryies.Location = new System.Drawing.Point(165, 119);
             this.btnDoubledEntryies.Name = "btnDoubledEntryies";
             this.btnDoubledEntryies.Size = new System.Drawing.Size(144, 34);
             this.btnDoubledEntryies.TabIndex = 8;
@@ -112,16 +112,16 @@ namespace TranslationsComparator
             // missingEntriesPanel
             // 
             this.missingEntriesPanel.AutoScroll = true;
-            this.missingEntriesPanel.Location = new System.Drawing.Point(16, 278);
+            this.missingEntriesPanel.Location = new System.Drawing.Point(16, 188);
             this.missingEntriesPanel.Name = "missingEntriesPanel";
-            this.missingEntriesPanel.Size = new System.Drawing.Size(293, 157);
+            this.missingEntriesPanel.Size = new System.Drawing.Size(293, 201);
             this.missingEntriesPanel.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(12, 255);
+            this.label1.Location = new System.Drawing.Point(12, 163);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 20);
             this.label1.TabIndex = 3;
@@ -132,7 +132,7 @@ namespace TranslationsComparator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 619);
+            this.ClientSize = new System.Drawing.Size(330, 619);
             this.Controls.Add(this.missingEntriesPanel);
             this.Controls.Add(this.btnDoubledEntryies);
             this.Controls.Add(this.btnMissingEntries);

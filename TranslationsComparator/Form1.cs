@@ -169,9 +169,10 @@ namespace TranslationsComparator
 
             string newKey = entry.GetKey();
 
+            string newValue = newKey;
             
-            string newValue = Microsoft.VisualBasic.Interaction.InputBox("Podaj wartość dla klucza:"+Environment.NewLine+newKey, "Dodaj tłumaczenie", "Default", 150, 350);
-            MessageBox.Show(" dodawanie wpisu: " + newKey + " do pliku " + fileName + "("+fullFilePath+")");
+            newValue = Microsoft.VisualBasic.Interaction.InputBox("Podaj wartość dla klucza:"+Environment.NewLine+newKey, "Dodaj tłumaczenie", newKey, 150, 350);
+            /*MessageBox.Show(" dodawanie wpisu: " + newKey + " do pliku " + fileName + "("+fullFilePath+")");*/
             File.AppendAllText(fullFilePath, newKey+"="+newValue + Environment.NewLine);
         }
 
