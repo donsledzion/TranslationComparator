@@ -1,0 +1,10 @@
+C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\bin\Debug\TranslationsComparator.exe.config
+C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\bin\Debug\TranslationsComparator.exe
+C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\bin\Debug\TranslationsComparator.pdb
+C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\obj\Debug\TranslationsComparator.csproj.AssemblyReference.cache
+C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\obj\Debug\TranslationsComparator.Form1.resources
+C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\obj\Debug\TranslationsComparator.Properties.Resources.resources
+C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\obj\Debug\TranslationsComparator.csproj.GenerateResource.cache
+C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\obj\Debug\TranslationsComparator.csproj.CoreCompileInputs.cache
+C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\obj\Debug\TranslationsComparator.exe
+C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\obj\Debug\TranslationsComparator.pdb
