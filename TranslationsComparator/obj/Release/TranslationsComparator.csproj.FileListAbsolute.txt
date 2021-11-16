@@ -2,9 +2,9 @@ C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\bin\Re
 C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\bin\Release\TranslationsComparator.exe
 C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\bin\Release\TranslationsComparator.pdb
 C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\obj\Release\TranslationsComparator.csproj.AssemblyReference.cache
-C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\obj\Release\TranslationsComparator.Form1.resources
 C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\obj\Release\TranslationsComparator.Properties.Resources.resources
 C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\obj\Release\TranslationsComparator.csproj.GenerateResource.cache
 C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\obj\Release\TranslationsComparator.csproj.CoreCompileInputs.cache
 C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\obj\Release\TranslationsComparator.exe
 C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\obj\Release\TranslationsComparator.pdb
+C:\Users\choja\source\repos\TranslationsComparator\TranslationsComparator\obj\Release\TranslationsComparator.MainForm.resources

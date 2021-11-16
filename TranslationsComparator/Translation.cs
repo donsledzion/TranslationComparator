@@ -9,6 +9,15 @@ class Translation
         this._value = value;
     }
 
+    public Translation(string line)
+    {
+        string[] splittedLine = line.Split('=');
+        string key = splittedLine[0];
+        string value = splittedLine[1];
+        this._key = key;
+        this._value = value;
+    }
+
     public string GetKey(){return this._key;}
     public string GetValue(){return this._value;}
 
@@ -25,5 +34,7 @@ class Translation
         }
         return true;
     }
+
+    
 
 }

@@ -27,11 +27,6 @@ class TranslationComparator
         return this._doubles;
     }
 
-    public void ListTranslations(){
-        foreach(TranslationFile translationFile in this._translationFiles){
-            translationFile.ShowEntries();
-        }
-    }
 
     public Dictionary<Translation, string> CompareTranslationFile(TranslationFile comparedFile){
         foreach(TranslationFile translationFile in this._translationFiles){
@@ -43,7 +38,10 @@ class TranslationComparator
                     _mismatches.Add(mismatchFound, comparedFile.Name);
                 }
                 foreach (Translation doubleFound in doublesFound) {
-                    _doubles.Add(doubleFound);
+                    if (!keyExistsOnList(doubleFound.GetKey(), this._doubles))
+                    {
+                        this._doubles.Add(doubleFound);
+                    }
                 }
             }
         }
@@ -54,6 +52,16 @@ class TranslationComparator
         foreach(TranslationFile translationFile in this._translationFiles){
             this.CompareTranslationFile(translationFile);
         }        
+    }
+
+    public static bool keyExistsOnList(string key, List<Translation> translations)
+    {
+        foreach (Translation translation in translations) {
+            if (translation.GetKey() == key) {
+                return true;
+            }
+        }
+        return false;
     }
 
 

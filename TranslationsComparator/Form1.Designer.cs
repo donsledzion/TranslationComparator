@@ -1,7 +1,7 @@
 ﻿
 namespace TranslationsComparator
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
@@ -31,12 +31,13 @@ namespace TranslationsComparator
         {
             this.dialogSelectFiles = new System.Windows.Forms.OpenFileDialog();
             this.btnSelectFiles = new System.Windows.Forms.Button();
-            this.lblTranslationsComparator = new System.Windows.Forms.Label();
-            this.lstMismatches = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.lstDoubled = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnMissingEntries = new System.Windows.Forms.Button();
+            this.btnDoubledEntryies = new System.Windows.Forms.Button();
+            this.missingEntriesPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dialogSelectFiles
@@ -56,40 +57,12 @@ namespace TranslationsComparator
             this.btnSelectFiles.UseVisualStyleBackColor = true;
             this.btnSelectFiles.Click += new System.EventHandler(this.btnSelectFiles_Click);
             // 
-            // lblTranslationsComparator
-            // 
-            this.lblTranslationsComparator.AutoSize = true;
-            this.lblTranslationsComparator.Location = new System.Drawing.Point(500, 80);
-            this.lblTranslationsComparator.Name = "lblTranslationsComparator";
-            this.lblTranslationsComparator.Size = new System.Drawing.Size(0, 13);
-            this.lblTranslationsComparator.TabIndex = 1;
-            this.lblTranslationsComparator.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // lstMismatches
-            // 
-            this.lstMismatches.FormattingEnabled = true;
-            this.lstMismatches.Location = new System.Drawing.Point(12, 234);
-            this.lstMismatches.Name = "lstMismatches";
-            this.lstMismatches.Size = new System.Drawing.Size(297, 121);
-            this.lstMismatches.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(16, 209);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Brakujące klucze";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
-            // 
             // lstDoubled
             // 
             this.lstDoubled.FormattingEnabled = true;
-            this.lstDoubled.Location = new System.Drawing.Point(12, 402);
+            this.lstDoubled.Location = new System.Drawing.Point(12, 480);
             this.lstDoubled.Name = "lstDoubled";
-            this.lstDoubled.Size = new System.Drawing.Size(297, 147);
+            this.lstDoubled.Size = new System.Drawing.Size(297, 121);
             this.lstDoubled.TabIndex = 4;
             this.lstDoubled.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -97,7 +70,7 @@ namespace TranslationsComparator
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(18, 377);
+            this.label2.Location = new System.Drawing.Point(12, 447);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 20);
             this.label2.TabIndex = 5;
@@ -114,21 +87,63 @@ namespace TranslationsComparator
     " ustawiony znak porównania to \'=\'\r\n";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // Form1
+            // btnMissingEntries
+            // 
+            this.btnMissingEntries.Location = new System.Drawing.Point(12, 209);
+            this.btnMissingEntries.Name = "btnMissingEntries";
+            this.btnMissingEntries.Size = new System.Drawing.Size(147, 34);
+            this.btnMissingEntries.TabIndex = 7;
+            this.btnMissingEntries.Text = "Brakujące wpisy";
+            this.btnMissingEntries.UseVisualStyleBackColor = true;
+            this.btnMissingEntries.Visible = false;
+            this.btnMissingEntries.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnDoubledEntryies
+            // 
+            this.btnDoubledEntryies.Location = new System.Drawing.Point(165, 209);
+            this.btnDoubledEntryies.Name = "btnDoubledEntryies";
+            this.btnDoubledEntryies.Size = new System.Drawing.Size(144, 34);
+            this.btnDoubledEntryies.TabIndex = 8;
+            this.btnDoubledEntryies.Text = "Identyczne wpisy";
+            this.btnDoubledEntryies.UseVisualStyleBackColor = true;
+            this.btnDoubledEntryies.Visible = false;
+            this.btnDoubledEntryies.Click += new System.EventHandler(this.btnDoubledEntryies_Click);
+            // 
+            // missingEntriesPanel
+            // 
+            this.missingEntriesPanel.AutoScroll = true;
+            this.missingEntriesPanel.Location = new System.Drawing.Point(16, 278);
+            this.missingEntriesPanel.Name = "missingEntriesPanel";
+            this.missingEntriesPanel.Size = new System.Drawing.Size(293, 157);
+            this.missingEntriesPanel.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(12, 255);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Brakujące klucze";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 619);
+            this.ClientSize = new System.Drawing.Size(778, 619);
+            this.Controls.Add(this.missingEntriesPanel);
+            this.Controls.Add(this.btnDoubledEntryies);
+            this.Controls.Add(this.btnMissingEntries);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lstDoubled);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lstMismatches);
-            this.Controls.Add(this.lblTranslationsComparator);
             this.Controls.Add(this.btnSelectFiles);
             this.HelpButton = true;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "MainForm";
+            this.Text = "Translation Comparator - demo";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -139,12 +154,13 @@ namespace TranslationsComparator
 
         private System.Windows.Forms.OpenFileDialog dialogSelectFiles;
         private System.Windows.Forms.Button btnSelectFiles;
-        private System.Windows.Forms.Label lblTranslationsComparator;
-        private System.Windows.Forms.ListBox lstMismatches;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lstDoubled;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnMissingEntries;
+        private System.Windows.Forms.Button btnDoubledEntryies;
+        private System.Windows.Forms.Panel missingEntriesPanel;
+        private System.Windows.Forms.Label label1;
     }
 }
 
