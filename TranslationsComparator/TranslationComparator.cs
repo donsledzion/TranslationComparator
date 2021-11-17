@@ -38,7 +38,7 @@ class TranslationComparator
                     _mismatches.Add(mismatchFound, comparedFile.Name);
                 }
                 foreach (Translation doubleFound in doublesFound) {
-                    if (!keyExistsOnList(doubleFound.GetKey(), this._doubles))
+                    if (!KeyExistsOnList(doubleFound.GetKey(), this._doubles))
                     {
                         this._doubles.Add(doubleFound);
                     }
@@ -54,7 +54,7 @@ class TranslationComparator
         }        
     }
 
-    public static bool keyExistsOnList(string key, List<Translation> translations)
+    public static bool KeyExistsOnList(string key, List<Translation> translations)
     {
         foreach (Translation translation in translations) {
             if (translation.GetKey() == key) {

@@ -44,34 +44,7 @@ namespace TranslationsComparator
                 {
                     _translationFiles.Add(filePath);
                 }
-                this._translationComparator = new TranslationComparator(_translationFiles);
-                this._translationComparator.CompareTranslationFiles();
-                
-                this._translationMismatches = this._translationComparator.GetMismatches();
-                this._translationsDoubled = this._translationComparator.GetDoubles();
-
-                string resultMessage = "";
-                bool resultsFound = false;
-
-                if (this._translationMismatches.Count > 0) {
-                    resultsFound = true;
-                    btnMissingEntries.Visible = true;
-                    btnMissingEntries.Text = "Brakujące klucze (" + this._translationMismatches.Count + ")";
-                    resultMessage = "\nZnalezione brakujące klucze: " + this._translationMismatches.Count;
-                }
-                if (this._translationsDoubled.Count > 0)
-                {
-                    resultsFound = true;
-                    btnDoubledEntryies.Visible = true;
-                    btnDoubledEntryies.Text = "Identyczne wpisy (" + this._translationsDoubled.Count + ")";
-                    resultMessage += "\nZnalezione identyczne wpisy: " + this._translationsDoubled.Count;
-                }
-
-                if (!resultsFound) {
-                    resultMessage = "Brak uwag do plików - tak trzymaj!";
-                }
-                //MessageBox.Show("Zakończono pracę" + resultMessage, "Wyniki!",MessageBoxButtons.OK);
-
+                AnalyzeFiles();
             }
         }
 
@@ -112,30 +85,7 @@ namespace TranslationsComparator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int counter = 0;
             
-            foreach (KeyValuePair<Translation, string> mismatch in this._translationMismatches)
-            {                
-
-                Button button = new Button();
-                counter = missingEntriesPanel.Controls.OfType<Button>().ToList().Count;
-                button.Location = new Point(5, 25*counter);
-                button.Size = new Size(50, 20);
-                button.Name = mismatch.Key.GetKey() + "=" + mismatch.Value;
-                button.Text = "dodaj";
-                button.Click += new System.EventHandler(this.Button_Click);
-                missingEntriesPanel.Controls.Add(button);
-
-
-                counter = missingEntriesPanel.Controls.OfType<Label>().ToList().Count;
-
-                Label label = new Label();
-                label.Location = new Point(65, 25 * counter + 2);
-                label.Size = new Size(180, 20);
-                label.Name = mismatch.Key.GetKey();
-                label.Text = mismatch.Key.GetKey();
-                missingEntriesPanel.Controls.Add(label);
-            }
         }
 
         private void btnDoubledEntryies_Click(object sender, EventArgs e)
@@ -160,20 +110,22 @@ namespace TranslationsComparator
         private void Button_Click(object sender, EventArgs e)
         {
             Button button = (sender as Button);
-
             Translation entry = new Translation(button.Name);
 
             string fileName = entry.GetValue();
-
             string fullFilePath = GetFileByName(fileName);
-
             string newKey = entry.GetKey();
-
             string newValue = newKey;
-            
-            newValue = Microsoft.VisualBasic.Interaction.InputBox("Podaj wartość dla klucza:"+Environment.NewLine+newKey, "Dodaj tłumaczenie", newKey, 150, 350);
-            /*MessageBox.Show(" dodawanie wpisu: " + newKey + " do pliku " + fileName + "("+fullFilePath+")");*/
-            File.AppendAllText(fullFilePath, newKey+"="+newValue + Environment.NewLine);
+            string textFile = File.ReadAllText(@fullFilePath, Encoding.UTF8);
+            string newLinePrefix = "";
+
+            if ((!textFile.EndsWith(Environment.NewLine)) && (!textFile.EndsWith("\n")))
+            {
+                newLinePrefix = Environment.NewLine;
+            }
+            newValue = Microsoft.VisualBasic.Interaction.InputBox("Podaj wartość dla klucza:"+Environment.NewLine+newKey+" (w pliku "+fileName+")", "Dodaj tłumaczenie", newKey, 150, 350);
+            File.AppendAllText(fullFilePath, newLinePrefix + newKey+"="+newValue + Environment.NewLine);
+            AnalyzeFiles();
         }
 
         public string GetFileByName(string fileName)
@@ -185,6 +137,62 @@ namespace TranslationsComparator
                 }
             }
             return "Nie znaleziono pliku o nazwie ("+fileName+")!";
+        }
+
+        public void ListMissingEntries()
+        {
+            
+            int counter = 0;
+            missingEntriesPanel.Controls.Clear();
+            foreach (KeyValuePair<Translation, string> mismatch in this._translationMismatches)
+            {
+
+                Button button = new Button();
+                counter = missingEntriesPanel.Controls.OfType<Button>().ToList().Count;
+                button.Location = new Point(5, 22 * counter);
+                button.Size = new Size(50, 20);
+                button.Name = mismatch.Key.GetKey() + "=" + mismatch.Value;
+                button.Text = "dodaj";
+                button.Click += new System.EventHandler(this.Button_Click);
+                missingEntriesPanel.Controls.Add(button);
+
+                counter = missingEntriesPanel.Controls.OfType<Label>().ToList().Count;
+
+                Label label = new Label();
+                label.Location = new Point(65, 22 * counter + 2);
+                label.Size = new Size(180, 20);
+                label.Name = mismatch.Key.GetKey();
+                label.Text = mismatch.Key.GetKey();
+                missingEntriesPanel.Controls.Add(label);
+            }
+        }
+
+        public void AnalyzeFiles() {
+            labelMissingEntries.Visible = false;
+            this._translationComparator = new TranslationComparator(_translationFiles);
+            this._translationComparator.CompareTranslationFiles();
+
+            this._translationMismatches = this._translationComparator.GetMismatches();
+            this._translationsDoubled = this._translationComparator.GetDoubles();
+
+            string resultMessage = "";
+            bool resultsFound = false;
+
+            if (this._translationMismatches.Count > 0)
+            {
+                labelMissingEntries.Visible = true;
+                resultsFound = true;
+                btnMissingEntries.Visible = true;
+                btnMissingEntries.Text = "Brakujące klucze (" + this._translationMismatches.Count + ")";
+                
+            }
+            ListMissingEntries();
+            if (this._translationsDoubled.Count > 0)
+            {
+                resultsFound = true;
+                btnDoubledEntryies.Visible = true;
+                btnDoubledEntryies.Text = "Identyczne wpisy (" + this._translationsDoubled.Count + ")";
+            }            
         }
                 
     }

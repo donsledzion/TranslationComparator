@@ -37,7 +37,7 @@ namespace TranslationsComparator
             this.btnMissingEntries = new System.Windows.Forms.Button();
             this.btnDoubledEntryies = new System.Windows.Forms.Button();
             this.missingEntriesPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelMissingEntries = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dialogSelectFiles
@@ -117,16 +117,17 @@ namespace TranslationsComparator
             this.missingEntriesPanel.Size = new System.Drawing.Size(293, 201);
             this.missingEntriesPanel.TabIndex = 9;
             // 
-            // label1
+            // labelMissingEntries
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(12, 163);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Brakujące klucze";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            this.labelMissingEntries.AutoSize = true;
+            this.labelMissingEntries.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelMissingEntries.Location = new System.Drawing.Point(12, 163);
+            this.labelMissingEntries.Name = "labelMissingEntries";
+            this.labelMissingEntries.Size = new System.Drawing.Size(129, 20);
+            this.labelMissingEntries.TabIndex = 3;
+            this.labelMissingEntries.Text = "Brakujące klucze";
+            this.labelMissingEntries.Visible = false;
+            this.labelMissingEntries.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // MainForm
             // 
@@ -139,7 +140,7 @@ namespace TranslationsComparator
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lstDoubled);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelMissingEntries);
             this.Controls.Add(this.btnSelectFiles);
             this.HelpButton = true;
             this.Name = "MainForm";
@@ -160,7 +161,7 @@ namespace TranslationsComparator
         private System.Windows.Forms.Button btnMissingEntries;
         private System.Windows.Forms.Button btnDoubledEntryies;
         private System.Windows.Forms.Panel missingEntriesPanel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelMissingEntries;
     }
 }
 
