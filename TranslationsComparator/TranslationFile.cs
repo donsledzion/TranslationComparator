@@ -1,17 +1,22 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Windows.Forms;
 class TranslationFile{
 
     private string[] _lines;
+
+    private string _fullPath;
 
     private List<Translation> _translations;
 
     public string Name;
 
+
+
     public TranslationFile(string pathToFile){
         this._lines = System.IO.File.ReadAllLines(@pathToFile);
-        
+        this._fullPath = pathToFile;
         this.Name = Path.GetFileName(pathToFile);
         this._translations = new List<Translation>{};
 
@@ -76,8 +81,44 @@ class TranslationFile{
         return mismatches;
     }
 
+    public void ChangeValue(Translation translation, string newValue)
+    {
+        string[] arrLine = File.ReadAllLines(this._fullPath);
+        arrLine[GetLineNumberInFile(translation) - 1] = translation.GetKey()+"="+newValue;
+        File.WriteAllLines(this._fullPath, arrLine);
+    }
+
+    public int GetLineNumberInFile(Translation translation, StringComparison comparison = StringComparison.CurrentCulture)
+    {
+        int lineNumber = 0;
+        using (StringReader reader = new StringReader(File.ReadAllText(this._fullPath)))
+        {
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+                lineNumber++;
+                if (line.Equals(translation.ToString()))
+                    return lineNumber;
+            }
+        }
+        return -1;
+    }
+
+    public Translation GetTranslationByKey(string key)
+    {
+        if (KeyExists(key))
+        {
+            foreach (Translation translation in this._translations)
+            {
+                if (translation.GetKey() == key)
+                {
+                    return translation;
+                }
+            }
+        }
+        return null;
+    }
 
 
-    
 
 }

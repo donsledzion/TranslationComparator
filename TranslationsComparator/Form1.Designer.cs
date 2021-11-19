@@ -31,13 +31,9 @@ namespace TranslationsComparator
         {
             this.dialogSelectFiles = new System.Windows.Forms.OpenFileDialog();
             this.btnSelectFiles = new System.Windows.Forms.Button();
-            this.lstDoubled = new System.Windows.Forms.ListBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnMissingEntries = new System.Windows.Forms.Button();
-            this.btnDoubledEntryies = new System.Windows.Forms.Button();
-            this.missingEntriesPanel = new System.Windows.Forms.Panel();
             this.labelMissingEntries = new System.Windows.Forms.Label();
+            this.labelDoubledEntries = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dialogSelectFiles
@@ -57,25 +53,6 @@ namespace TranslationsComparator
             this.btnSelectFiles.UseVisualStyleBackColor = true;
             this.btnSelectFiles.Click += new System.EventHandler(this.btnSelectFiles_Click);
             // 
-            // lstDoubled
-            // 
-            this.lstDoubled.FormattingEnabled = true;
-            this.lstDoubled.Location = new System.Drawing.Point(12, 428);
-            this.lstDoubled.Name = "lstDoubled";
-            this.lstDoubled.Size = new System.Drawing.Size(297, 173);
-            this.lstDoubled.TabIndex = 4;
-            this.lstDoubled.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(12, 400);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Identyczne wpisy";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -87,41 +64,11 @@ namespace TranslationsComparator
     " ustawiony znak porównania to \'=\'\r\n";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // btnMissingEntries
-            // 
-            this.btnMissingEntries.Location = new System.Drawing.Point(12, 119);
-            this.btnMissingEntries.Name = "btnMissingEntries";
-            this.btnMissingEntries.Size = new System.Drawing.Size(147, 34);
-            this.btnMissingEntries.TabIndex = 7;
-            this.btnMissingEntries.Text = "Brakujące wpisy";
-            this.btnMissingEntries.UseVisualStyleBackColor = true;
-            this.btnMissingEntries.Visible = false;
-            this.btnMissingEntries.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnDoubledEntryies
-            // 
-            this.btnDoubledEntryies.Location = new System.Drawing.Point(165, 119);
-            this.btnDoubledEntryies.Name = "btnDoubledEntryies";
-            this.btnDoubledEntryies.Size = new System.Drawing.Size(144, 34);
-            this.btnDoubledEntryies.TabIndex = 8;
-            this.btnDoubledEntryies.Text = "Identyczne wpisy";
-            this.btnDoubledEntryies.UseVisualStyleBackColor = true;
-            this.btnDoubledEntryies.Visible = false;
-            this.btnDoubledEntryies.Click += new System.EventHandler(this.btnDoubledEntryies_Click);
-            // 
-            // missingEntriesPanel
-            // 
-            this.missingEntriesPanel.AutoScroll = true;
-            this.missingEntriesPanel.Location = new System.Drawing.Point(16, 188);
-            this.missingEntriesPanel.Name = "missingEntriesPanel";
-            this.missingEntriesPanel.Size = new System.Drawing.Size(293, 201);
-            this.missingEntriesPanel.TabIndex = 9;
-            // 
             // labelMissingEntries
             // 
             this.labelMissingEntries.AutoSize = true;
             this.labelMissingEntries.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelMissingEntries.Location = new System.Drawing.Point(12, 163);
+            this.labelMissingEntries.Location = new System.Drawing.Point(12, 118);
             this.labelMissingEntries.Name = "labelMissingEntries";
             this.labelMissingEntries.Size = new System.Drawing.Size(129, 20);
             this.labelMissingEntries.TabIndex = 3;
@@ -129,17 +76,25 @@ namespace TranslationsComparator
             this.labelMissingEntries.Visible = false;
             this.labelMissingEntries.Click += new System.EventHandler(this.label1_Click_1);
             // 
+            // labelDoubledEntries
+            // 
+            this.labelDoubledEntries.AutoSize = true;
+            this.labelDoubledEntries.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelDoubledEntries.Location = new System.Drawing.Point(15, 142);
+            this.labelDoubledEntries.Name = "labelDoubledEntries";
+            this.labelDoubledEntries.Size = new System.Drawing.Size(129, 20);
+            this.labelDoubledEntries.TabIndex = 9;
+            this.labelDoubledEntries.Text = "Identyczne wpisy";
+            this.labelDoubledEntries.Visible = false;
+            this.labelDoubledEntries.Click += new System.EventHandler(this.label1_Click_2);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 619);
-            this.Controls.Add(this.missingEntriesPanel);
-            this.Controls.Add(this.btnDoubledEntryies);
-            this.Controls.Add(this.btnMissingEntries);
+            this.ClientSize = new System.Drawing.Size(330, 161);
+            this.Controls.Add(this.labelDoubledEntries);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lstDoubled);
             this.Controls.Add(this.labelMissingEntries);
             this.Controls.Add(this.btnSelectFiles);
             this.HelpButton = true;
@@ -155,13 +110,9 @@ namespace TranslationsComparator
 
         private System.Windows.Forms.OpenFileDialog dialogSelectFiles;
         private System.Windows.Forms.Button btnSelectFiles;
-        private System.Windows.Forms.ListBox lstDoubled;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnMissingEntries;
-        private System.Windows.Forms.Button btnDoubledEntryies;
-        private System.Windows.Forms.Panel missingEntriesPanel;
         private System.Windows.Forms.Label labelMissingEntries;
+        private System.Windows.Forms.Label labelDoubledEntries;
     }
 }
 
