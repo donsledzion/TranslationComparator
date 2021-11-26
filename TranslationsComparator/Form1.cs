@@ -120,17 +120,11 @@ namespace TranslationsComparator
             string newKey = entry.GetKey();
             string newValue = newKey;
             string textFile = File.ReadAllText(@fullFilePath, Encoding.UTF8);
-            string newLinePrefix = "";            
-            MessageBox.Show("Youre going to change value of " + newKey + " in " + fullFilePath);
+            string newLinePrefix = "";                        
             TranslationFile translationFile = new TranslationFile(fullFilePath);            
             Translation translationToChange = translationFile.GetTranslationByKey(newKey);
             newValue = Microsoft.VisualBasic.Interaction.InputBox("Podaj nowe tłumaczenie dla klucza:" + Environment.NewLine + newKey + " (w pliku " + fileName + ")", "Zmień tłumaczenie", newKey, 150, 350);
             translationFile.ChangeValue(translationToChange,newValue);
-            /*if ((!textFile.EndsWith(Environment.NewLine)) && (!textFile.EndsWith("\n")))
-            {
-                newLinePrefix = Environment.NewLine;
-            }*/
-            
             
             AnalyzeFiles();
         }

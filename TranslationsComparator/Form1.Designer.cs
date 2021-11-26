@@ -58,10 +58,10 @@ namespace TranslationsComparator
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(17, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(208, 39);
+            this.label3.Size = new System.Drawing.Size(206, 39);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Wybierz przynajmniej dwa pliki translacyjne\r\naby dokonać ich porównania.\r\nObecnie" +
-    " ustawiony znak porównania to \'=\'\r\n";
+            this.label3.Text = "Wybierz dokładnie dwa pliki translacyjne\r\naby dokonać ich porównania.\r\nObecnie us" +
+    "tawiony znak porównania to \'=\'\r\n";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // labelMissingEntries
